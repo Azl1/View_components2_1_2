@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
+
             }
         });
     }
@@ -73,19 +74,21 @@ public class MainActivity extends AppCompatActivity {
             case "Белоруссия":
                 adapter = ArrayAdapter.createFromResource(this, R.array.b_cities, android.R.layout.simple_spinner_item);
                 break;
+
         }
         if (adapter != null) {
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             mCitiesSpinner.setAdapter(adapter);
+            Toast.makeText(MainActivity.this
+                            ,mCountriesSpinner.getSelectedItem().toString()
+                                    + " "
+                                    + mCitiesSpinner.getSelectedItem().toString()
+                                    + " "
+                                    + mHouseNumberSpinner.getSelectedItem().toString()
+                            , Toast.LENGTH_LONG)
+                    .show();
         }
-        Toast.makeText(MainActivity.this
-                        ,mCountriesSpinner.getSelectedItem().toString()
-                                + " "
-                                + mCitiesSpinner.getSelectedItem().toString()
-                                + " "
-                                + mHouseNumberSpinner.getSelectedItem().toString()
-                        , Toast.LENGTH_LONG)
-                .show();
+
     }
 
 }
